@@ -7,4 +7,6 @@ def post_list(request):
     return render(request, 'blog/index.html', {'posts': posts})
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'blog/blog-single-post.html', {'post': post})
+def gallery(request):
+    return render(request, 'blog/gallery.html', {})

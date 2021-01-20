@@ -1,3 +1,4 @@
+{% extends 'blog/base.html' %}
 {% load static %}
 <!doctype html>
 <!-- Website Template by freewebsitetemplates.com -->
@@ -5,23 +6,33 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Blog - Mustache Enthusiast</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
-	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
+	<title>Blog Single Post - Mustache Enthusiast</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
+	<script type="text/javascript" src="js/mobile.js"></script>
 </head>
 <body>
 	<div id="header">
-		<a href="{% url 'post_list' %}" class="logo">
-			<img src="{% static 'images/logo.jpg' %}" alt="">
+		<a href="index.html" class="logo">
+			<!--<img src="images/logo.jpg" alt="">-->
 		</a>
-		{% include 'tmp/menu.html' %}
+		{% include 'menu.html' %}
 	</div>
-
 	<div id="body">
-				{% block content %}
+
+		{% block content %}
+		<h1><span>Докладніше</span></h1>
+		<div>
+			<!--<img src="images/grew-a-mustache.jpg" alt="">-->
+			<h2>{{ post.title }}</h2>
+			<div class="article">
+				<p>
+					{{ post.text|linebreaksbr }}
+				</p>
 				
-            	{% endblock %}
+			</div>
+		</div>
+		{% endblock %}
 	</div>
 	<div id="footer">
 		<div>
@@ -43,5 +54,4 @@
 		</div>
 	</div>
 </body>
-
 </html>
