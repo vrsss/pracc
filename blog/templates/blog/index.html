@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+	{% for post in posts %}
+	<li>
+		<a href="{% url 'post_detail' pk=post.pk %}" class="figure">
+			<img src="{% static 'images/cutting-mustache.jpg' %}" alt="">
+		</a>
+		<div>
+			<h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+			<p>{{ post.text|linebreaksbr }}</p>
+			<a href="{% url 'post_detail' pk=post.pk %}" class="more">Читати докладніше</a>
+		</div>
+	</li>
+	{% endfor %}
+{% endblock %}
